@@ -6,14 +6,14 @@ import streamlit as st
 import requests
 
 class Zoo:
-    def mostrar_menu(self):
+    def mostrar_menu(self):     #clase zoo se encarga del menu principal, la vista muestra ademas el diseño de la pag y las opciones
         sistema = sistemaZoo.Sistema()
         controlador = controllerZoo.Controller(sistema, self)
         st.title("🐾:orange[Bienvenido a el Zoo]👋")
         st.divider()
 
         st.sidebar.caption("1️⃣ Añadir info del animal🐯")
-        opcion1 = st.sidebar.button(":blue[Click aqui]",1)
+        opcion1 = st.sidebar.button(":blue[Click aqui]",1) #opciones de la barra lateral de la pag
         st.sidebar.divider()
 
         st.sidebar.caption("2️⃣ Crear habitat🏞️")
@@ -64,7 +64,7 @@ class Zoo:
         if "opcion" in st.session_state:
             controlador.ejecutar_opcion(st.session_state["opcion"])
 
-    def menu_crear_animal(self):
+    def menu_crear_animal(self):  #guarda los datos del animal, que se preguntan en la pag
         with st.expander("Formulario animales"):
             st.subheader("Escribe los datos del animal que se agregara 😎")
             id = st.text_input("Ingrese el id del animal: ")
@@ -94,7 +94,7 @@ class Zoo:
             st.success("Se ha guardado correctamente el animal")
             return nuevoAnimal
 
-    def menu_crear_habitat(self):
+    def menu_crear_habitat(self):   #guarda los datos del habitat
         with st.expander("Formulario habitat"):
             nombre = st.text_input("Ingrese el codigo o el nombre del habitat: ")
             st.divider()
@@ -117,7 +117,7 @@ class Zoo:
             st.success("Se ha creado correctamente el habitat")
             return nuevoHabitat
 
-    def listar_info_zoo(self,habitats,animales):
+    def listar_info_zoo(self,habitats,animales):  #lista los animales y habitats que hay en el zoo
         if len(habitats)==0:
             st.error("No hay info en el zoo")
         else:
@@ -133,7 +133,7 @@ class Zoo:
                 st.write("EL Nombre del habitat es: ", animal.nombre)
                 st.write("El Id es: ", animal.id)
 
-    def borrar_alimento(self,carnivoro,herbivoros,omnivoros):
+    def borrar_alimento(self,carnivoro,herbivoros,omnivoros):  #borra el alimento
         eleccion1 = st.selectbox("Escoje entre: ",("carnivoros", "herbivoros", "omnivoros"))
         i=0
         if eleccion1 == "carnivoros":
@@ -170,7 +170,7 @@ class Zoo:
     def solicitar_info_habitat(self, datoHabitat):
         return input(datoHabitat)
 
-    def llamado_api(self):
+    def llamado_api(self):  #consulta de la pagina
         llamado = requests.get("https://swapi.dev/api/people/1/")
         datos = llamado.json()
         st.write("Los datos que hay son: ")

@@ -1,5 +1,6 @@
 import streamlit as st
 class Habitats:
+    #clase que se encarga de crear los habitats y sus parametros
     def __init__(self, nombre, tipoHabitat, numeroHabitantesMAx, dieta, temperatura, clasificacion, descripcion):
         self.nombre = nombre
         self.tipoHabitat = tipoHabitat

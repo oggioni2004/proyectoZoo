@@ -1,5 +1,6 @@
 import requests
 class Controller:
+    # esta clase s eencarga de mandejar los modelos y vistas ademas de ejecutarlos
     def __init__(self, modelo, vista):
         self.modelo = modelo
         self.vista = vista

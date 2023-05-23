@@ -1,5 +1,6 @@
 import streamlit as st
 class Sistema:
+    #clase sistema se encarga de llevar las clases animales y habitats, es el modelo principal donde se añaden los metodos
     def __init__(self):
         if "animales" in st.session_state:
             self.animales = st.session_state["animales"]
@@ -26,14 +27,15 @@ class Sistema:
         else:
             self.omnivoros = ["carne","pescado","pollo","plantas","hierbas","algas"]
 
-    def anadir_animales(self, animal):
+    def anadir_animales(self, animal):                  #añade animales
         self.animales.append(animal)
         st.session_state["animales"] = self.animales
 
-    def anadir_habitats(self, habitat):
+    def anadir_habitats(self, habitat):                 #añade habitats
         self.habitats.append(habitat)
         st.session_state["habitats"] = self.habitats
 
+    #actualiza la info de los habitats
     def actualizar_habitats(self, nombre, tipoHabitat = None, numeroHabitantesMAx = None, dieta = None, temperatura = None, clasificacion = None, descripcion = None):
         for habitat in self.habitats:
             if habitat.nombre == nombre:
@@ -50,6 +52,7 @@ class Sistema:
                 if descripcion:
                     habitat.descripcion = descripcion
 
+    #actualiza la info de los animales si se requiere
     def actualizar_animales(self, id, nombre = None, tipoAnimal = None, edad = None, dieta = None, salud = None, descripcion = None, clasificacion = None, horasSueno = None):
         for animal in self.animales:
             if animal.id == id:
@@ -70,7 +73,7 @@ class Sistema:
                 if horasSueno:
                     animal.horasSueno = horasSueno
 
-    def borrar_alimento_lista(self,tipo=None, borrar=None):
+    def borrar_alimento_lista(self,tipo=None, borrar=None):    #borra los alimentos que hay segun su tipo
         tipo1 = tipo
         if tipo1 == "carnivoros":
             for i in range(len(self.carnivoros)):

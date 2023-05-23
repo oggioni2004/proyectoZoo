@@ -1,5 +1,6 @@
 import streamlit as st
 class Animales:
+    #clase que se encarga de los parametros que tienen los animales para realizar sus funciones
     def __init__(self, id, nombre, tipoAnimal, edad, dieta, salud, descripcion, clasificacion, horasSueno):
         self.id = id
         self.nombre = nombre
