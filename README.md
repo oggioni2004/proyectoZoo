@@ -15,3 +15,4 @@ Mi Programa funciona regular, las opciones que funcionan bien son crear habitat,
 link UML: https://lucid.app/lucidchart/3ce76366-f53c-4682-9bff-58f06af3984f/edit?viewport_loc=-152%2C46%2C2035%2C916%2C0_0&invitationId=inv_993aa6c3-cf48-4b43-910c-ae745bf19c9d
 
 
+![image](https://github.com/oggioni2004/proyectoZoo/assets/102446501/2fc2e628-ec5b-4eb8-ada2-8d0f06a7d7d5)
